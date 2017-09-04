@@ -50,7 +50,7 @@ RUN  cd /iot-edge \
      --disable-native-remote-modules \
      --toolchain-file ./toolchain-rpi.cmake
 
-#### Create IoT Edge tarball so that it is easy to copy the file from the Docker container to the host
-RUN tar -czf /iot-edge.tar.gz /iot-edge 
+#### Create IoT Edge for RPi tarball so that it is easy to copy the file from the Docker container to the host
+RUN tar -czf /iot-edge-rpi.tar.gz /iot-edge 
 
 CMD ["/bin/bash"]
