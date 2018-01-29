@@ -27,7 +27,7 @@ RUN apt-get update
 RUN apt-get install -y dotnet-sdk-2.0.0
 
 #### Git clone IoT Edge repo
-RUN git clone https://github.com/Azure/iot-edge.git /iot-edge
+RUN git clone --branch 2017-08-21 https://github.com/Azure/iot-edge.git /iot-edge
 
 #### Update csproj files to target .NET Core 2.0.0
 RUN cd / \
@@ -49,6 +49,8 @@ RUN  cd /iot-edge \
      --enable-dotnet-core-binding \
      --disable-native-remote-modules \
      --toolchain-file ./toolchain-rpi.cmake
+
+RUN dotnet publish /iot-edge/samples/dotnet_core_managed_gateway --runtime linux-arm
 
 #### Create IoT Edge for RPi tarball so that it is easy to copy the file from the Docker container to the host
 RUN tar -czf /iot-edge-rpi.tar.gz /iot-edge 
