@@ -27,7 +27,7 @@ RUN apt-get update
 RUN apt-get install -y dotnet-sdk-2.0.0
 
 #### Git clone IoT Edge repo
-RUN git clone https://github.com/Azure/iot-edge.git /iot-edge
+RUN git clone --branch 2017-08-21 https://github.com/Azure/iot-edge.git /iot-edge
 
 #### Update csproj files to target .NET Core 2.0.0
 RUN cd / \
