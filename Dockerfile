@@ -50,6 +50,8 @@ RUN  cd /iot-edge \
      --disable-native-remote-modules \
      --toolchain-file ./toolchain-rpi.cmake
 
+RUN dotnet publish /iot-edge/samples/dotnet_core_managed_gateway --runtime linux-arm
+
 #### Create IoT Edge for RPi tarball so that it is easy to copy the file from the Docker container to the host
 RUN tar -czf /iot-edge-rpi.tar.gz /iot-edge 
 
